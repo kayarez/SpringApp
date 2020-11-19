@@ -18,7 +18,7 @@ public class UsersFilmService extends AbstractService {
 
     public List<UsersAndFilmsModel> getAllUsersFilms(int id) {
 
-        return repository.getAllUsersFilms(id);
+      return null;
     }
 }
 
