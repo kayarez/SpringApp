@@ -43,10 +43,10 @@ public class UserController {
         }
     }
 
-    @GetMapping("/index")
+    @GetMapping("/indexx")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
+        modelAndView.setViewName("indexx.html");
         return modelAndView;
     }
     // Convert a predefined exception to an HTTP Status code
