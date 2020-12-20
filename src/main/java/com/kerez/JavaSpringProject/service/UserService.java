@@ -1,6 +1,6 @@
 package com.kerez.JavaSpringProject.service;
 
-import com.kerez.JavaSpringProject.model.UserModel;
+import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class UserService extends AbstractService {
         super(repository);
     }
 
-    public Optional<UserModel> findByEmail(String name) {
+    public Optional<User> findByEmail(String name) {
         return Optional.of(repository.findByEmail(name));
     }
 
-    public UserModel findByEmailAndPassword(String name, String pass) {
+    public User findByEmailAndPassword(String name, String pass) {
         return repository.findByEmailAndPassword(name, pass);
     }
 

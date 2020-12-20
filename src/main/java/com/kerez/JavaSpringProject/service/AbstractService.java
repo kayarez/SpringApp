@@ -1,6 +1,5 @@
 package com.kerez.JavaSpringProject.service;
 
-import com.kerez.JavaSpringProject.model.BasicEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

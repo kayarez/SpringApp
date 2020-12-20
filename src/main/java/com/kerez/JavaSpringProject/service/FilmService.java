@@ -1,6 +1,6 @@
 package com.kerez.JavaSpringProject.service;
 
-import com.kerez.JavaSpringProject.model.FilmModel;
+import com.kerez.JavaSpringProject.model.Film;
 import com.kerez.JavaSpringProject.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +16,11 @@ public class FilmService extends AbstractService {
         super(repository);
     }
 
-    public List<FilmModel> getFilms() {
+    public List<Film> getFilms() {
         return (List) repository.findAll();
     }
 
-    public FilmModel save(FilmModel filmModel){
-        return this.repository.save(filmModel);
+    public Film save(Film film){
+        return this.repository.save(film);
     }
 }

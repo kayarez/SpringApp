@@ -1,9 +1,7 @@
 package com.kerez.JavaSpringProject.service;
 
-import com.kerez.JavaSpringProject.model.FilmModel;
-import com.kerez.JavaSpringProject.model.FilmProducerModel;
-import com.kerez.JavaSpringProject.repository.FilmProducerRepository;
-import com.kerez.JavaSpringProject.repository.FilmRepository;
+import com.kerez.JavaSpringProject.model.Producer;
+import com.kerez.JavaSpringProject.repository.ProducerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +9,18 @@ import java.util.List;
 @Service
 public class FilmProducerService extends AbstractService {
     @Autowired
-    FilmProducerRepository repository;
+    ProducerRepository repository;
 
-    public FilmProducerService(FilmProducerRepository repository) {
+    public FilmProducerService(ProducerRepository repository) {
         super(repository);
     }
 
-    public List<FilmProducerModel> getProducer() {
+    public List<Producer> getProducer() {
         return (List) repository.findAll();
     }
 
-    public FilmProducerModel save(FilmProducerModel filmproducerModel){
-        return this.repository.save(filmproducerModel);
+    public Producer save(Producer filmproducer){
+        return this.repository.save(filmproducer);
     }
 }
 

@@ -1,15 +1,25 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>k</title>
+    <meta charset="UTF-8" />
+    <title>Book List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1>Sign In Form</h1>
-
+<h1>Book List</h1>
+<h2> <a href="films">Add new film</a> </h2>
+<br/><br/>
+<div class="container">
+    <table class ="container" border="1">
+        <tr>
+            <th><h1>Title</h1></th>
+            <th><h1>Author</h1></th>
+<!--        </tr>-->
+<!--            <tr th:each ="film : ${filmModel}">-->
+<!--            <td th:utext="${film.name}">...</td>-->
+<!--            <td th:utext="${film.description}">...</td>-->
+<!--        </tr>-->
+    </table>
+</div>
 </body>
 </html>

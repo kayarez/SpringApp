@@ -2,8 +2,7 @@ package com.kerez.JavaSpringProject.controller;
 
 
 import com.kerez.JavaSpringProject.OAP.Loggable;
-import com.kerez.JavaSpringProject.model.AuthRequest;
-import com.kerez.JavaSpringProject.model.UserModel;
+import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,15 +26,15 @@ public class UserController {
 
     @Loggable
     @PostMapping("user")
-    public void saveUser(@RequestBody UserModel userModel) {
-        userService.save(userModel);
+    public void saveUser(@RequestBody User user) {
+        userService.save(user);
     }
 
     @Loggable
     @PostMapping("login")
     public ResponseEntity<Object> getAuthUser(@RequestBody AuthRequest request) {
 
-        UserModel userEntity = userService.findByEmailAndPassword(request.getEmail(), request.getPassword());
+        User userEntity = userService.findByEmailAndPassword(request.getEmail(), request.getPassword());
         if (userEntity == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         } else {

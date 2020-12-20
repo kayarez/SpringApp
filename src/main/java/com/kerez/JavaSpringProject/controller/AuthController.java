@@ -1,7 +1,6 @@
 package com.kerez.JavaSpringProject.controller;
 
-import com.kerez.JavaSpringProject.model.RegistrationRequest;
-import com.kerez.JavaSpringProject.model.UserModel;
+import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,14 +23,14 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity registerUser(@RequestBody RegistrationRequest registrationRequest) {
-        UserModel u = new UserModel();
+        User u = new User();
         u.setPassword(registrationRequest.getPassword());
         u.setLogin(registrationRequest.getLogin());
         u.setRole(1);
         System.out.println(registrationRequest);
-        UserModel user= new UserModel();
+        User user= new User();
         try {
-            user = (UserModel) userService.save(u);
+            user = (User) userService.save(u);
         }catch (Exception ex){
             return ResponseEntity.ok(user);
         }

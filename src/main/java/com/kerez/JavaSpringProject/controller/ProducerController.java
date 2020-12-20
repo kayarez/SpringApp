@@ -1,10 +1,8 @@
 package com.kerez.JavaSpringProject.controller;
 
 import com.kerez.JavaSpringProject.OAP.Loggable;
-import com.kerez.JavaSpringProject.model.FilmModel;
-import com.kerez.JavaSpringProject.model.FilmProducerModel;
+import com.kerez.JavaSpringProject.model.Producer;
 import com.kerez.JavaSpringProject.service.FilmProducerService;
-import com.kerez.JavaSpringProject.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,13 +17,13 @@ public class ProducerController {
 
     @Loggable
     @GetMapping("/producers")
-    public List<FilmProducerModel> getProducer(){
+    public List<Producer> getProducer(){
         return filmproducerService.getProducer();
     }
 
     @Loggable
     @PostMapping("/producers")
-    public FilmProducerModel saveProducer(@RequestBody FilmProducerModel model){
+    public Producer saveProducer(@RequestBody Producer model){
         return filmproducerService.save(model);
     }
 }
