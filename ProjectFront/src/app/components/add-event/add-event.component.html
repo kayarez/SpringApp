@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form (ngSubmit)="addEvent()">
+        <div class="form-group">
+          <label for="name">Event name</label>
+          <input [(ngModel)]="event.name" name="name" type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label *ngIf="isUpdate" for="startDate">Start date {{event.startDate | date}}</label>
+          <label *ngIf="!isUpdate" for="startDate">Start date</label>
+          <input [(ngModel)]="event.startDate" name="startDate" type="date" class="form-control" id="startDate">
+        </div>
+        <div class="form-group">
+
+          <label *ngIf="isUpdate" for="finishDate">Finish date {{event.finishDate | date}}</label>
+          <label *ngIf="!isUpdate" for="finishDate">Finish date</label>
+          <input [(ngModel)]="event.finishDate" name="finishDate" type="date" class="form-control" id="finishDate">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Place name</label>
+          <select [(ngModel)]="event.placeName" name="placeName" class="form-control" id="exampleFormControlSelect1" >
+            <option value="{{name}}" *ngFor="let name of placeNames">{{name}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Add event</button>
+      </form>
+    </div>
+  </div>
+</div>

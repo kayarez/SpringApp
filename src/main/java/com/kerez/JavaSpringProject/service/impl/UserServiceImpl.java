@@ -1,6 +1,6 @@
 package com.kerez.JavaSpringProject.service.impl;
 
-import com.kerez.JavaSpringProject.OAP.Loggable;
+import com.kerez.JavaSpringProject.AOP.Loggable;
 import com.kerez.JavaSpringProject.config.Mapper;
 import com.kerez.JavaSpringProject.exceptions.IncorrectPasswordException;
 import com.kerez.JavaSpringProject.exceptions.UserNameNotFoundException;

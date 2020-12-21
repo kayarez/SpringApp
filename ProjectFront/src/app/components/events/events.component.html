@@ -1,0 +1,28 @@
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <app-find></app-find>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+
+      <mat-icon (click)="drawer.toggle()">list</mat-icon>
+      <div class="events">
+        <input [(ngModel)]="eventName" type="text" placeholder="Find event" (input)="getEvents()">
+        <div class="row">
+          <div class="col-8" *ngFor="let event of events">
+            <div>
+              <a routerLink="/events/{{event.id}}">{{event.name}}</a>
+              <div class="event-date">{{event.startDate | date}} - {{event.finishDate | date}}</div>
+            </div>
+          </div>
+          <br/>
+          <mat-paginator [length]="eventsSize"
+                         [pageSize]="3"
+                         [pageSizeOptions]="[3, 5]"
+                         (page)="onChangePage($event)">
+          </mat-paginator>
+        </div>
+      </div>
+      </div>
+
+  </mat-drawer-container>

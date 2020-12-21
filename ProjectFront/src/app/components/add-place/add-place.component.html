@@ -1,0 +1,19 @@
+
+<div class="container">
+  <H3> ADD FILM</H3>
+  <div class="row">
+    <div class="col-12" *ngIf="film">
+      <form (ngSubmit)="saveFilm()">
+        <div class="form-group">
+          <label for="name">Title</label>
+          <input [(ngModel)]="film.name" name="name" type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="country">Description</label>
+          <input [(ngModel)]="film.description" name="country" type="text" class="form-control" id="country">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Save film</button>
+      </form>
+    </div>
+  </div>
+</div>

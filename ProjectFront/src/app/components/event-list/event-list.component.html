@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Event name</th>
+          <th scope="col">Start date</th>
+          <th scope="col">Finish date</th>
+          <th scope="col">Place address</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+
+        <tr *ngFor="let event of events">
+          <th scope="row">{{event.id}}</th>
+          <td>{{event.name}}</td>
+          <td>{{event.startDate | date}}</td>
+          <td>{{event.finishDate | date}}</td>
+          <td>{{event.place.country}}: {{event.place.city}} city: {{event.place.street}} str.{{event.place.number}}</td>
+          <td><a class="btn btn-success" routerLink="../updateEvent/{{event.id}}">Update</a></td>
+          <td><button class="btn btn-danger" (click)="deleteEvent(event.id)">Delete</button></td>
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
+</div>

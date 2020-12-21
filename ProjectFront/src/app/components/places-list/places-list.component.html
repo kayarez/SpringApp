@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Place name</th>
+          <th scope="col">Country</th>
+          <th scope="col">City</th>
+          <th scope="col">Street</th>
+          <th scope="col">Number</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+
+        <tr *ngFor="let place of places">
+          <th scope="row">{{place.id}}</th>
+          <td>{{place.name}}</td>
+          <td>{{place.country}}</td>
+          <td>{{place.city}}</td>
+          <td>{{place.street}}</td>
+          <td>{{place.number}}</td>
+          <td><a class="btn btn-success" routerLink="../updatePlace/{{place.id}}">Update</a></td>
+          <td><button class="btn btn-danger" (click)="deletePlace(place.id)">Delete</button></td>
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
+</div>

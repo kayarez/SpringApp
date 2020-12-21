@@ -1,10 +1,7 @@
 package com.kerez.JavaSpringProject.controller;
 
 
-import com.kerez.JavaSpringProject.OAP.Loggable;
-import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.model.UserDto;
-import com.kerez.JavaSpringProject.service.UserService;
 import com.kerez.JavaSpringProject.service.impl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -14,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 

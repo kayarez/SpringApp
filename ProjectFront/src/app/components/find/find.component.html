@@ -1,0 +1,25 @@
+
+<h2>Find</h2>
+<form (ngSubmit)="find()">
+  <div class="form-group">
+    <label for="placeCountry">Place country</label>
+    <select [(ngModel)]="placeCountry" name="placeCountry" class="form-control" id="placeCountry" (change)="getAllPlaceCountries()">
+      <option value="{{name}}" *ngFor="let name of placeCountries">{{name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="placeName">Place name</label>
+    <select [(ngModel)]="placeName" name="placeName" class="form-control" id="placeName">
+      <option value="{{name}}" *ngFor="let name of placeNames">{{name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="startDate">Start date</label>
+    <input [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="startDate" placeholder="Start date">
+  </div>
+  <div class="form-group">
+    <label for="finishDate">Finish date</label>
+    <input [(ngModel)]="finishDate" name="finishDate" type="date" class="form-control" id="finishDate" placeholder="Finish date">
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg">Find</button>
+</form>

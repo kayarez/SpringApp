@@ -1,4 +1,4 @@
-package com.kerez.JavaSpringProject.OAP;
+package com.kerez.JavaSpringProject.AOP;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
