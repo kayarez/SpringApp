@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.sass']
 })
 export class RegisterComponent implements OnInit {
-  user = {username: '', password: '', repeatPassword: ''};
+  user = {username: '', password: '', repeatPassword: '', email: ''};
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   register(): void{
     this.userService
-      .register(this.user.username, this.user.password, this.user.repeatPassword)
+      .register(this.user.username, this.user.password, this.user.repeatPassword, this.user.email)
       .subscribe(() => {
         this.router
           .navigate(['/login']);

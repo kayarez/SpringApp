@@ -1,6 +1,7 @@
 package com.kerez.JavaSpringProject.controller;
 
 
+import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.model.UserDto;
 import com.kerez.JavaSpringProject.service.impl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,12 +14,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @CrossOrigin(value = "*")
 @RestController
 public class RegisterController {
     private final UserServiceImpl userService;
 
+    @Autowired
+    private MailController mailController;
 
     @Autowired
     public RegisterController(UserServiceImpl userService) {
@@ -32,9 +36,13 @@ public class RegisterController {
             @ApiResponse(responseCode = "400", description = "Wrong format")
     })
     @PostMapping(value = "/rest/api/v1/register")
-    public ResponseEntity register(@RequestBody @Valid UserDto userDto) {
+    public ResponseEntity register(@RequestBody @Valid UserDto userDto, Principal principal) {
         try {
             userService.register(userDto);
+            System.out.println("Hello world!");
+            mailController.sendSimpleEmail(principal);
+            System.out.println("Bye world...");
+
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error");
         }
