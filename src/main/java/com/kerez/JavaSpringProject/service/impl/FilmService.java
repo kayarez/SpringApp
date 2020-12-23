@@ -18,4 +18,12 @@ public class FilmService {
     public Film saveFilm(Film film){
         return filmRepository.save(film);
     }
+    public void updateFilm(Film film){ filmRepository.deleteById(film.id);
+    Film film1=new Film();
+    film1.name=film.name;
+    film1.description=film.description;
+    filmRepository.save(film1);
+    }
+    public void deleteById(int id){ filmRepository.deleteById(id);}
+
 }

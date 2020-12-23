@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+
+        <tr *ngFor="let film of films">
+          <td>{{film.id }}</td>
+          <th scope="row">{{film.name}}</th>
+          <td>{{film.description }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

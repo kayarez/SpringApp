@@ -3,6 +3,7 @@ package com.kerez.JavaSpringProject.controller;
 import com.kerez.JavaSpringProject.AOP.Loggable;
 import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,11 @@ import java.security.Principal;
 @RequestMapping(value = "/register", method = RequestMethod.GET)
 public class MailController {
     public final JavaMailSender emailSender;
+
+    @Autowired
     private final UserService userService;
+
+
 
 
     public MailController(JavaMailSender emailSender, UserService userService) {
@@ -31,10 +36,10 @@ public class MailController {
 
     @GetMapping(value = "sendNotify")
     @Loggable
-    public ResponseEntity<Object> sendSimpleEmail(Principal principal) {
+    public ResponseEntity<Object> sendSimpleEmail(String username) {
 
         SimpleMailMessage message = new SimpleMailMessage();
-        User user = userService.getUserByUsername(principal.getName());
+        User user = userService.getUserByUsername(username);
         message.setTo(user.getEmail());
         message.setFrom("appspringapp@gmail.com");
         message.setSubject("SpringApp");

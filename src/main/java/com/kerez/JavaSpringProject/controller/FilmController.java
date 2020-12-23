@@ -13,6 +13,7 @@ public class FilmController {
     @Autowired
     FilmService filmService;
 
+
     @GetMapping("film")
     public List<Film> getAllFilms(){
         return filmService.GetAllFilms();
@@ -21,5 +22,10 @@ public class FilmController {
     public Film saveFilm(@RequestBody Film film){
         return filmService.saveFilm(film);
     }
+    @PutMapping("film")
+    public void updateFilm(@RequestBody Film film){
+       filmService.updateFilm(film);
+    }
+
 
 }

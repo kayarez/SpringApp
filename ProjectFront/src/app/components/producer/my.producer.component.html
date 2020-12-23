@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Film</th>
+
+        <tr *ngFor="let producer of producers">
+          <td>{{producer.id }}</td>
+          <th scope="row">{{producer.name}}</th>
+          <td>{{producer.rating }}</td>
+        <td>{{producer.film }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+

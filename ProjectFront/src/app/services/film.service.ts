@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Place} from '../models/Place';
 import {Film} from '../models/Film';
 
 @Injectable({
@@ -20,6 +19,11 @@ export class FilmService {
   saveFilm(film: Film): Observable<any> {
     return this.httpClient
       .post('http://localhost:8080/film', {name: film.name, description: film.description})
+      .pipe();
+  }
+  updateFilm(film: Film): Observable<any> {
+    return this.httpClient
+      .post('http://localhost:8080/film', {id: film.id, name: film.name, description: film.description})
       .pipe();
   }
 }

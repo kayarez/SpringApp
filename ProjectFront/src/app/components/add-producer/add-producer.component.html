@@ -1,0 +1,23 @@
+<div class="container">
+  <H3> ADD PRODUCER</H3>
+  <div class="row">
+    <div class="col-12" *ngIf="producer">
+      <form (ngSubmit)="saveProducer()">
+        <div class="form-group">
+          <label for="name">Producer name</label>
+          <input [(ngModel)]="producer.name" name="name" type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="rating">Producer rating</label>
+          <input [(ngModel)]="producer.rating" name="rating" type="int" class="form-control" id="rating">
+        </div>
+        <div class="form-group">
+          <label for="film">Producer film</label>
+          <input [(ngModel)]="producer.film" name="film" type="text" class="form-control" id="film">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Add producer</button>
+      </form>
+    </div>
+  </div>
+</div>

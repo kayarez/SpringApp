@@ -70,7 +70,8 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT,"/rest/api/v1/events/**").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE,"/rest/api/v1/events/**").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET,"/rest/api/v1/comments/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/rest/api/v1/comments/**").hasAuthority("USER");
+                .antMatchers(HttpMethod.POST,"/rest/api/v1/comments/**").hasAuthority("USER")
+        ;
 
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 

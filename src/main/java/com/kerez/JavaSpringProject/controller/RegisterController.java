@@ -36,12 +36,10 @@ public class RegisterController {
             @ApiResponse(responseCode = "400", description = "Wrong format")
     })
     @PostMapping(value = "/rest/api/v1/register")
-    public ResponseEntity register(@RequestBody @Valid UserDto userDto, Principal principal) {
+    public ResponseEntity register(@RequestBody @Valid UserDto userDto) {
         try {
             userService.register(userDto);
-            System.out.println("Hello world!");
-            mailController.sendSimpleEmail(principal);
-            System.out.println("Bye world...");
+            mailController.sendSimpleEmail(userDto.getUsername());
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error");

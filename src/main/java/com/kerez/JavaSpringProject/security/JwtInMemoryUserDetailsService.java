@@ -25,6 +25,6 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 
         if(user1.isEmpty()) throw new UsernameNotFoundException("User not found");
         User user = user1.get();
-        return new JwtUserDetails(user.getId(), user.getUsername(), user.getPassword(), user.getRole().getName());
+        return new JwtUserDetails(user.getId(), user.getUsername(), user.getPassword(), user.getRole().getName(), user.getEmail());
     }
 }

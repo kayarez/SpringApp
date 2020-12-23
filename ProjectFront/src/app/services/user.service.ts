@@ -27,7 +27,7 @@ export class UserService {
 
   register(username: string, password: string, repeatPassword: string, email: string): Observable<any>{
     return this.http
-      .post('http://localhost:8080/rest/api/v1/register', {username, password, repeatPassword})
+      .post('http://localhost:8080/rest/api/v1/register', {username, password, repeatPassword, email})
       .pipe();
   }
 

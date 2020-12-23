@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {PlaceService} from '../../services/place.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Place} from '../../models/Place';
 import {FilmService} from '../../services/film.service';
 import {Film} from '../../models/Film';
 
 @Component({
-  selector: 'app-add-place',
-  templateUrl: './add-place.component.html',
-  styleUrls: ['./add-place.component.sass']
+  selector: 'app-add-film',
+  templateUrl: './add-film.component.html',
+  styleUrls: ['./add-film.component.sass']
 })
-export class AddPlaceComponent implements OnInit {
+export class AddFilmComponent implements OnInit {
   film: Film = new Film();
   id: number;
   constructor(private filmService: FilmService,

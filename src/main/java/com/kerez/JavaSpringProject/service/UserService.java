@@ -14,5 +14,6 @@ public interface UserService {
     void register(UserDto userDto) throws Exception;
     boolean isAdmin(String username);
     User getUserByUsername(String username);
+    User getById(int id);
 
 }
