@@ -61,16 +61,13 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/rest/api/v1/login", "/rest/api/v1/register").permitAll()
-                .antMatchers(HttpMethod.GET,"/rest/api/v1/places/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/rest/api/v1/places/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/rest/api/v1/places/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/rest/api/v1/places/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.GET,"/rest/api/v1/events/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/rest/api/v1/events/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/rest/api/v1/events/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/rest/api/v1/events/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.GET,"/rest/api/v1/comments/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/rest/api/v1/comments/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.GET,"/rest/api/v1/producer/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/rest/api/v1/film/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/rest/api/v1/addFilm/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/rest/api/v1/addProducer/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT,"/rest/api/v1/updateFilm/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE,"/rest/api/v1/deleteFilm/**").hasAuthority("ADMIN")
+
         ;
 
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);

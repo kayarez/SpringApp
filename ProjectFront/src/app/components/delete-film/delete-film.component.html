@@ -1,0 +1,15 @@
+
+<div class="container">
+  <H3> DELETE FILM</H3>
+  <div class="row">
+    <div class="col-12" *ngIf="film">
+      <form (ngSubmit)="deleteFilm()">
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input [(ngModel)]="film.id" name="id" type="int" class="form-control" id="id">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Delete film</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -40,9 +40,6 @@ public class JwtUserDetails implements UserDetails {
         return username;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
     @JsonIgnore
     @Override

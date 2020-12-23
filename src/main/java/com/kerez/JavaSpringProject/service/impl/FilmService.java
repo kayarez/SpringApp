@@ -24,6 +24,10 @@ public class FilmService {
     film1.description=film.description;
     filmRepository.save(film1);
     }
-    public void deleteById(int id){ filmRepository.deleteById(id);}
+    public void deleteFilm(Film film){ filmRepository.deleteById(film.id);}
+    public  void deleteById(int id)
+    {
+        filmRepository.deleteById(id);
+    }
 
 }

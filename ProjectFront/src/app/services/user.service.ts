@@ -10,13 +10,13 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any>{
+  login(username: string, password: string, email: string): Observable<any>{
     const authHeader = this.createBasicAuthHttpHeader(username, password);
     const header = new HttpHeaders({
       Authorization: authHeader
     });
     return this.http
-      .post('http://localhost:8080/rest/api/v1/login', {username, password})
+      .post('http://localhost:8080/rest/api/v1/login', {username, password, email})
       .pipe(map((data ) => {
         console.log(data);
         sessionStorage.setItem('username', username);

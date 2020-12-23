@@ -23,7 +23,12 @@ export class FilmService {
   }
   updateFilm(film: Film): Observable<any> {
     return this.httpClient
-      .post('http://localhost:8080/film', {id: film.id, name: film.name, description: film.description})
+      .post('http://localhost:8080/updateFilm', {id: film.id, name: film.name, description: film.description})
+      .pipe();
+  }
+  deleteFilm(film: Film): Observable<any> {
+    return this.httpClient
+      .get('http://localhost:8080/deletefilm?id=' + film.id)
       .pipe();
   }
 }

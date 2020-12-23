@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
-  user = {username: '', password: '', repeatPassword: ''};
+  user = {username: '', password: '', repeatPassword: '', email: ''};
 
   constructor(private userService: UserService,
               private router: Router) { }
@@ -18,10 +18,10 @@ export class LoginComponent implements OnInit {
 
   login(): void{
     this.userService
-      .login(this.user.username, this.user.password)
+      .login(this.user.username, this.user.password, this.user.email)
       .subscribe(() => {
         this.router
-          .navigate(['/events']);
+          .navigate(['/index']);
     });
   }
 }

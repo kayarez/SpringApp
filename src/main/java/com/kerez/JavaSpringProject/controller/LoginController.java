@@ -1,11 +1,9 @@
 package com.kerez.JavaSpringProject.controller;
 
-import com.kerez.JavaSpringProject.model.User;
 import com.kerez.JavaSpringProject.model.UserDto;
 import com.kerez.JavaSpringProject.security.AuthenticationException;
 import com.kerez.JavaSpringProject.security.JwtInMemoryUserDetailsService;
 import com.kerez.JavaSpringProject.security.JwtTokenUtil;
-import com.kerez.JavaSpringProject.service.UserService;
 import com.kerez.JavaSpringProject.service.impl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -13,14 +11,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -56,7 +52,7 @@ public class LoginController {
             @ApiResponse(responseCode = "400", description = "Wrong format")
     })
     @PostMapping(value = "/rest/api/v1/login")
-    public ResponseEntity<Map<Object, Object>> login(@RequestBody @Valid UserDto userDto){
+    public Map<Object, Object> login(@RequestBody @Valid UserDto userDto){
         authenticate(userDto.getUsername(), userDto.getPassword());
 
         final UserDetails userDetails = jwtInMemoryUserDetailsService
@@ -65,12 +61,13 @@ public class LoginController {
         final String token = jwtTokenUtil.generateToken(userDetails);
         Map<Object, Object> outToken = new HashMap<>();
         outToken.put("token", token);
-        return ResponseEntity.ok(outToken);
+        return outToken;
     }
 
     private void authenticate(String username, String password) {
         Objects.requireNonNull(username);
         Objects.requireNonNull(password);
+
 
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
