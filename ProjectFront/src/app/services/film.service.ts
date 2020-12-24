@@ -18,12 +18,12 @@ export class FilmService {
 
   saveFilm(film: Film): Observable<any> {
     return this.httpClient
-      .post('http://localhost:8080/film', {name: film.name, description: film.description})
+      .post('http://localhost:8080/rest/api/v1/addFilm/', {name: film.name, description: film.description})
       .pipe();
   }
   updateFilm(film: Film): Observable<any> {
     return this.httpClient
-      .post('http://localhost:8080/updateFilm', {id: film.id, name: film.name, description: film.description})
+      .put('http://localhost:8080/rest/api/v1/updateFilm/', {id: film.id, name: film.name, description: film.description})
       .pipe();
   }
   deleteFilm(film: Film): Observable<any> {

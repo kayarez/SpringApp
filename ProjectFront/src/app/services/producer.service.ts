@@ -18,7 +18,7 @@ export class ProducerService {
 
   saveProducer(producer: Producer): Observable<any> {
     return this.httpClient
-      .post('http://localhost:8080/addProducer', {name: producer.name, rating: producer.rating, film: producer.film})
+      .post('http://localhost:8080/rest/api/v1/addProducer/', {name: producer.name, rating: producer.rating})
       .pipe();
   }
   // updateFilm(producer: Producer): Observable<any> {

@@ -21,11 +21,11 @@ public class FilmController {
     public List<Film> getAllFilms(){
         return filmService.GetAllFilms();
     }
-    @PostMapping("film")
+    @PostMapping("/rest/api/v1/addFilm/")
     public Film saveFilm(@RequestBody Film film){
         return filmService.saveFilm(film);
     }
-    @PutMapping("film")
+    @PutMapping("/rest/api/v1/updateFilm/")
     public void updateFilm(@RequestBody Film film){
        filmService.updateFilm(film);
     }

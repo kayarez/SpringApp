@@ -18,7 +18,7 @@ public class ProducerController {
     public List<Producer> getAllProducers(){
         return producerService.getAllProducers();
     }
-    @PostMapping("producer")
+    @PostMapping("/rest/api/v1/addProducer/")
     public Producer saveProducer(@RequestBody Producer producer){
         return producerService.save(producer);
     }
